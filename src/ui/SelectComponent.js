@@ -12,10 +12,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SelectComponent = () => {
+const SelectComponent = (props) => {
+  console.log("props",props)
   const classes = useStyles();
   const [selectedOption, setSelectedOption] = useState('');
-
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
   };
@@ -23,16 +23,19 @@ const SelectComponent = () => {
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel id="select">Select </InputLabel>
+        <InputLabel id="select">{props.name}</InputLabel>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={selectedOption}
+          labelId={props.name}
+          id="energy"
+          defaultValue={props.values[0]}
           onChange={handleChange}
         >
-          <MenuItem value={'windmill'}>Wind Mill</MenuItem>
-          <MenuItem value={'solarpanel'}>Solar Panel</MenuItem>
-          <MenuItem value={'turbine'}>Turbine</MenuItem>
+          {props.values.map((item)=>{
+            return(
+              <MenuItem>{item}</MenuItem>
+            )
+             
+          })}
         </Select>
       </FormControl>
     </div>

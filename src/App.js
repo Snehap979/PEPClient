@@ -10,21 +10,16 @@ import SignUpComponent from './SignUp/SignUpComponent';
  
 const App = () => {
    return(
- <div>
-       {/* <BrowserRouter>  */}
-           <Routes>
-           <Route path="/" index element={<LoginComponent/>}/>
-           <Route path="/dashboard" element={<DashboardComponent/>} />
-           <Route path="/signup" element={<SignUpComponent/>}/>    
-           </Routes>
-       {/* </BrowserRouter> */}
-     </div>
+    <SignUpComponent>
+      
+    </SignUpComponent>
+
   )
 
 
    }
 
-
+ 
 
 
 export default App;
